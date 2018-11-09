@@ -1,0 +1,9 @@
+<div class="row title">
+    <div class="center title-content" style="text-align: center;" [ngStyle]="{'font-size':project ? '200%' : '275%'}">{{label}}: {{total}}</div>
+</div>
+<div class="row canvas">
+    <canvas #pieChart class="center"></canvas>
+</div>
+<div class="row legend">
+    <div class="center legend-content" #legend></div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "apps": [
+    {
+      "name": "tickets-js-worker",
+      "script": "./dist/www",
+      "autorestart": true,
+      "exec_mode": "cluster",
+      "instances": "max",
+      "restart_delay": 1000,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "merge_logs": true,
+      "wait_ready": true,
+      "out_file": "./logs/pm2.log",
+      "error_file": "./logs/pm2.log",
+      "watch": false,
+      "ignore_watch": [],
+      "max_memory_restart": "2G",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_dev": {
+        "NODE_ENV": "development"
+      },
+      "env_test": {
+        "NODE_ENV": "test"
+      }
+    }
+  ]
+}

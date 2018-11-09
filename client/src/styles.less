@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import (inline) "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import (inline) "../node_modules/ag-grid/dist/styles/ag-theme-material.css";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+/*              Ticket grid styles              */
+.ag-theme-material .ag-header {
+  color: rgba(0, 0, 0, 0.54);
+  font: 700 23px "Roboto", sans-serif;
+
+}
+/*              Slideshow styles              */
+div.carousel.slide {
+  height: 100%;
+}
+div.carousel-inner {
+  height: 100%;
+}
+div.item.active {
+  height: 100%;
+}
+// Disable bg image of prev and next button
+.carousel-control.left {
+  background-image: none;
+  width: 10%;
+}
+.carousel-control.right {
+  background-image: none;
+  width: 10%;
+}
+// Disable bg icon of prev and next button
+.carousel-control-prev-icon {
+  background-image: none;
+}
+.carousel-control-next-icon {
+  background-image: none;
+}
+// Size of prev and next button
+.carousel-control .icon-prev {
+  font-size: 50px;
+}
+.carousel-control .icon-next {
+  font-size: 50px;
+}
+// Hide prev and next button when not hover
+.carousel-control-next, .carousel-control-prev {
+  opacity: .0;
+}

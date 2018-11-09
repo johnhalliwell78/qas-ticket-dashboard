@@ -1,0 +1,37 @@
+<carousel [interval]="slideShowInterval" [noPause]="false" (activeSlideChange)="onSelect($event)" [showIndicators]="false">
+  <slide *ngFor="let project of projects" style="height: 100%">
+    <div class="row" style="height: 100%;">
+      <div class="col-12" style="height:0px; width: 0px;"></div>
+      <div class="col-9" style="height: 100%;">
+        <h1 class="general-title" align="center" style="margin-top: 5px; margin-bottom: 5px">Welcome to {{currentProjectName}} Dashboard Ticket</h1>
+        <div #grid></div>
+      </div>
+      <div class="col-3" style="height: 100%;">
+        <div class="project-pie-charts">
+          <div class="row" class="project-status-chart">
+            <div #statuschart></div>
+          </div>
+          <div class="row" class="project-age-chart">
+            <div #agechart></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </slide>
+  <slide *ngIf="projects" style="height: 100%">
+    <h1 class="general-title" align="center" style="margin-top: 5px; margin-bottom: 5px">Welcome to {{currentProjectName}} Dashboard Ticket</h1>
+      <div class="row" style="height: 90%; width: 100%;">
+        <div class="col-12" style="height:0px; width: 0px;"></div>
+        <div class="col-4 general-pie-chart">
+          <div #statuschart></div>
+        </div>
+        <div class="col-4 general-pie-chart">
+          <div #agechart></div>
+        </div>
+        <div class="col-4 general-pie-chart">
+          <div #projectschart></div>
+        </div>
+      </div>
+  </slide>
+</carousel>

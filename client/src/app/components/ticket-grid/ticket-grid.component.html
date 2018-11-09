@@ -1,0 +1,20 @@
+  <ag-grid-angular id="grid-wrapper" #agGrid class="ag-theme-material"
+                   [ngStyle]="style"
+                   [rowData]="data"
+                   [gridOptions]="gridOptions"
+                   [enableCellChangeFlash]="true"
+                   enableCellChangeFlash
+                   enableColResize
+                   enableFilter
+                   groupHeaders
+                   suppressRowClickSelection
+                   toolPanelSuppressGroups
+                   toolPanelSuppressValues
+                   rowHeight="30"
+                   rowSelection="multiple"
+                   (gridReady)='onGridReady($event)'
+                   (gridSizeChanged)="onGridSizeChanged($event)"
+  >
+  </ag-grid-angular>
+  <div #ageFilter (click)="filterByAge()"></div>
+

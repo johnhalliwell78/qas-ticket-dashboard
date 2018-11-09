@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var app = require("./server").app;
+var https = require('http');
+var logger = require("./utils/logger").logger;
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+var fs = require("fs");
+var privateKey = fs.readFileSync('dist/ssl/server.key', 'utf8');
+var certificate = fs.readFileSync('dist/ssl/server.crt', 'utf8');
+var credentials = { key: privateKey, cert: certificate };
+
+var server = https.createServer(app);
+var httpPort = normalizePort(process.env.PORT || 3000);
+
+server.listen(httpPort, function () {
+  console.log("Application is listening on port " + httpPort);
+});
+
+process.on("uncaughtException", (error) => {
+  logger.info("Uncaught Exception:", error);
+  process.exit(1);
+});
+
+process.on("SIGINT", function () {
+  logger.info(`SIGINT: process ${process.pid} exit...`);
+  process.exit(0);
+});
+
+process.on("exit", function () {
+  logger.info(`exit: process ${process.pid} exit...`);
+  process.exit(0);
+});
